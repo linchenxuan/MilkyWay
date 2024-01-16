@@ -10,8 +10,15 @@ project "MilkyWay"
 	includedirs 
     { 
         "%{prj.location}", 
+		"Vendor/glfw/include",
     }
     
+	links 
+    { 
+		"opengl32",
+        "glfw",
+    }
+
 	targetdir (outputdir .. "%{cfg.buildcfg}/%{prj.name}")
 	objdir (objoutdir .. "%{cfg.buildcfg}/%{prj.name}")
     characterset ("MBCS")

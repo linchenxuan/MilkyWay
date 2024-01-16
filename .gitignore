@@ -4,3 +4,5 @@ Build/
 *.sln
 *.vcxproj
 *.vcxproj.user
+*.vcxproj.filters
+.clang-format
