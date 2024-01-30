@@ -64,4 +64,6 @@ public:
     Matrix3 Adjoint() const;
     Matrix3 Inverse() const;
 };
+
+using Matrix3f = Matrix3<float>;
 } // namespace MilkyWay::Math

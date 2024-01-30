@@ -8,6 +8,7 @@ workspace "MilkyWay"
 
 	group "Vendor"
 		require("MilkyWay/Vendor/glfw/premake5")
+		require("MilkyWay/Vendor/glad/premake5")
 
 	group ""
 

@@ -12,6 +12,8 @@ struct WindowOptions
     std::string Title;
     uint16_t Width;
     uint16_t Height;
+    uint16_t GLFWMajorVersion;
+    uint16_t GLFWMinorVersion;
 };
 
 enum class WindowStatus

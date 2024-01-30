@@ -1,5 +1,9 @@
 
+#include <glad/glad.h>
+
 #include "Window.h"
+
+#include <iostream>
 
 namespace MilkyWay
 {
@@ -10,9 +14,20 @@ Window::Window(const WindowOptions &p_options) :
     if (!glfwInit())
         _ASSERT(0);
 
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, p_options.GLFWMajorVersion);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, p_options.GLFWMinorVersion);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
     m_glfwWindow = glfwCreateWindow(m_options.Width, m_options.Height, m_options.Title.data(), NULL, NULL);
+    if (m_glfwWindow == nullptr)
+    {
+        std::cout << "Failed to create GLFW window" << std::endl;
+        glfwTerminate();
+        return;
+    }
     m_status = WindowStatus::RUNNING;
 
+    glfwMakeContextCurrent(m_glfwWindow);
     glfwSetWindowUserPointer(m_glfwWindow, this);
 }
 

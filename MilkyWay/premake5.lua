@@ -11,12 +11,15 @@ project "MilkyWay"
     { 
         "%{prj.location}", 
 		"Vendor/glfw/include",
+		"Vendor/glad/include",
+		"Vendor/stb/include",
     }
     
 	links 
     { 
 		"opengl32",
         "glfw",
+		"Glad",
     }
 
 	targetdir (outputdir .. "%{cfg.buildcfg}/%{prj.name}")
@@ -25,6 +28,8 @@ project "MilkyWay"
 	debugdir (outputdir .. "%{cfg.buildcfg}/%{prj.name}")
 
 	buildoptions { "/bigobj" }
+
+	defines {"STB_IMAGE_IMPLEMENTATION"}
 
 	filter { "configurations:Debug" }
 		defines { "DEBUG" }
